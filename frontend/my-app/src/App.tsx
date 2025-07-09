@@ -56,7 +56,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Gestor de Tareas</h1>
+        <h1>Gestor</h1>
 
         {error && <div className="error-message">{error}</div>}
 
