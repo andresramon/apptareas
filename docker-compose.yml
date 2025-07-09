@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   db:
     image: postgres:16
@@ -12,21 +10,28 @@ services:
       - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
+    # Evitar problemas de credenciales
+    pull_policy: missing
 
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      pull: false # No intentar pull de imágenes base
     command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
     volumes:
       - ./backend:/app
     environment:
       - DATABASE_URL=postgresql://todo_user:todo_pass@db:5432/todo_db
+      - DOCKER_BUILDKIT=0 # Desactivar BuildKit si causa problemas
     ports:
       - "8000:8000"
     depends_on:
       - db
 
   frontend:
-    build: ./frontend/my-app
+    build:
+      context: ./frontend/my-app
+      pull: false # No intentar pull de imágenes base
     volumes:
       - ./frontend/my-app:/app
       - /app/node_modules
@@ -36,6 +41,7 @@ services:
       - CHOKIDAR_USEPOLLING=true
       - WATCHPACK_POLLING=true
       - FAST_REFRESH=true
+      - DOCKER_BUILDKIT=0
     depends_on:
       - backend
 
