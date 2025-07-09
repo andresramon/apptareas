@@ -16,11 +16,7 @@
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 20px;
   color: white;
 }
 
@@ -28,10 +24,134 @@
   color: #61dafb;
 }
 
+.app-content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.task-form-section,
+.task-list-section {
+  background-color: #3a3f47;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+}
+
+.task-form button {
+  padding: 12px 24px;
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.task-form button:hover {
+  background-color: #4fa8c5;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.task-item {
+  background-color: #4a5058;
+  padding: 15px;
+  border-radius: 6px;
+  text-align: left;
+}
+
+.task-display h3 {
+  margin: 0 0 10px 0;
+  color: #61dafb;
+}
+
+.task-display p {
+  margin: 0 0 15px 0;
+  color: #ccc;
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.task-actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.task-actions button:first-child {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.task-actions button:last-child {
+  background-color: #f44336;
+  color: white;
+}
+
+.task-edit input,
+.task-edit textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+}
+
+.error-message {
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.no-tasks {
+  color: #ccc;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .app-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
