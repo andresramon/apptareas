@@ -91,16 +91,21 @@ apptareas/
 
 ### Ejecución con Docker (Recomendado)
 
-1. Clona el repositorio:
+1. Clona el repositorio o descarga el zip y extraelo en un directorio:
    ```bash
    git clone <url-repositorio>
    cd apptareas
    ```
 
-2. Ejecuta la aplicación completa:
-   ```bash
-   docker-compose up --build
-   ```
+2. Ejecuta primero el comando 
+```bash
+docker-setup.cmd
+ ```
+ y posteriormente 
+ 
+```bash
+docker-compose up
+ ```
 
 3. Accede a los servicios:
    - **Frontend:** [http://localhost:3000](http://localhost:3000)
@@ -164,63 +169,3 @@ npm start
 1. Haz clic en "Eliminar" en cualquier tarea
 2. La tarea se eliminará inmediatamente
 
-## 🎨 Características de UI/UX
-
-- **Diseño oscuro** con esquema de colores moderno
-- **Layout responsivo** que se adapta a diferentes tamaños de pantalla
-- **Feedback visual** para operaciones exitosas y errores
-- **Animaciones suaves** para mejor experiencia de usuario
-- **Formularios intuitivos** con validación en tiempo real
-
-## 🔄 Flujo de Datos
-
-1. **Usuario interactúa** con el frontend React
-2. **Frontend envía petición** al backend FastAPI
-3. **Backend procesa** la petición y consulta/modifica la base de datos
-4. **Backend devuelve** respuesta JSON
-5. **Frontend actualiza** el estado y re-renderiza la interfaz
-
-## 🚀 Próximas Mejoras
-
-- [ ] Autenticación y autorización de usuarios
-- [ ] Fechas de vencimiento para tareas
-- [ ] Categorización de tareas
-- [ ] Filtros y búsqueda
-- [ ] Notificaciones push
-- [ ] Exportación de tareas
-
-## 🤝 Contribución
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit tus cambios (`git commit -m 'Añadir nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Abre un Pull Request
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
-## 🆘 Solución de Problemas
-
-### Errores Comunes
-
-1. **Puerto ocupado:** Asegúrate de que los puertos 3000, 8000 y 5432 estén disponibles
-2. **Base de datos no conecta:** Verifica que PostgreSQL esté ejecutándose
-3. **Cambios no se reflejan:** Reinicia los contenedores con `docker-compose restart`
-
-### Logs de Debug
-
-```bash
-# Ver logs de todos los servicios
-docker-compose logs
-
-# Ver logs de un servicio específico
-docker-compose logs backend
-docker-compose logs frontend
-docker-compose logs db
-```
-
-## 📞 Contacto
-
-Para preguntas o sugerencias, por favor crea un issue en el repositorio.
